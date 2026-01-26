@@ -1,0 +1,14 @@
+# Ignore large/binary data files
+data/
+*.csv
+*.zip
+*.xlsx
+*.parquet
+
+# Common ML ignores
+models/*.joblib
+models/*.pkl
+mlruns/
+__pycache__/
+.pytest_cache/
+.DS_Store
