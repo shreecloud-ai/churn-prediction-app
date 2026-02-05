@@ -49,6 +49,9 @@ was handled during training.
 - **Deployment**: Render.com (Docker runtime)
 - **Visualization**: Matplotlib, Seaborn
 
+## Note
+"First load may take 30–120 seconds due to free tier spin-up"
+
 ## Project Structure
 churn-prediction-app/
 ├── app/
@@ -101,5 +104,6 @@ Open:
 
 API docs → http://localhost:8000/docs
 Streamlit app → http://localhost:8501
+
 
 
