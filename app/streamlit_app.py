@@ -13,7 +13,7 @@ st.set_page_config(
 )
 
 # API endpoint (change when deployed)
-API_URL = "https://churn-api-toas.onrender.com"
+API_URL = "https://churn-api-toas.onrender.com/predict"
 # API_URL = "https://your-app-name.onrender.com/predict"  # after deployment
 
 # ────────────────────────────────────────────────
