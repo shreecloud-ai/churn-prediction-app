@@ -7,6 +7,7 @@ from typing import Dict
 app = FastAPI(title="Telco Customer Churn Prediction API")
 
 # Load the trained model (from the joblib file)
+# Change this line (or add it if missing)
 MODEL_PATH = "/app/models/churn_pipeline_rf.joblib"
 try:
     model = joblib.load(MODEL_PATH)
