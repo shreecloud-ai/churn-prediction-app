@@ -2,7 +2,9 @@ version: '3.9'
 
 services:
   api:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile.api     # your separate API Dockerfile
     command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
     ports:
       - "8000:8000"
@@ -10,6 +12,7 @@ services:
       - .:/app
     environment:
       - PYTHONUNBUFFERED=1
+    # depends_on: []                  # ← optional, only add if truly needed
 
   streamlit:
     build: .
@@ -19,6 +22,6 @@ services:
     volumes:
       - .:/app
     depends_on:
-      - api
+      - api                         # ← correct: dash + service name as string
     environment:
       - PYTHONUNBUFFERED=1

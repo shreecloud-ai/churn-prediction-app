@@ -1,23 +1,16 @@
-# Use a slim Python image (smaller and faster)
 FROM python:3.11-slim
 
-# Set working directory inside container
 WORKDIR /app
 
-# Copy requirements first (optimizes caching)
 COPY requirements.txt .
 
-# Install dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+# Increase timeout + retries + use PyPI mirror if needed
+RUN pip install --no-cache-dir \
+    --default-timeout=100 \
+    -r requirements.txt
 
-# Copy the entire project code
 COPY . .
 
-# Explicitly copy the models folder (very important!)
-COPY models/ ./models/
-
-# Expose the port FastAPI will use
+# For API service
 EXPOSE 8000
-
-# Command to start FastAPI
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
